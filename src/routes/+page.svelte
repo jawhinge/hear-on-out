@@ -17,15 +17,23 @@
 	}
 </script>
 
-{#if !getPosition}
-	<button onclick={flipGetPosition}> Find yourself </button>
-{:else if loading}
-	<p>Loading...</p>
-{:else if error}
-	<p>We can't seem to find you.</p>
-{:else}
-	<p>Your Position is set as: {position?.coords?.latitude}, {position?.coords?.longitude}</p>
-	<button onclick={goToPlayer}>Ok, on-out with it</button>
-{/if}
+<div class="flex min-h-screen flex-col items-center justify-center">
+	{#if !getPosition}
+		<button class="animate-pulse cursor-crosshair text-xl" onclick={flipGetPosition}>
+			Let me show you...
+		</button>
+	{:else if loading}
+		<p class="text-xl">Loading...</p>
+	{:else if error}
+		<p class="text-xl">We can't seem to find you.</p>
+	{:else}
+		<p class="mb-5 text-xl">
+			Your Position is set as: {position?.coords?.latitude}, {position?.coords?.longitude}
+		</p>
+		<button class="animate-pulse cursor-crosshair text-lg" onclick={goToPlayer}
+			>Ok, on-out with it</button
+		>
+	{/if}
+</div>
 
 <Geolocation {getPosition} bind:position bind:loading bind:error />
