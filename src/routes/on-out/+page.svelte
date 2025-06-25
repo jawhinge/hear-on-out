@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import WeatherGen from '$lib/generators/weather/WeatherGen.svelte';
 
-	const lat = $derived(page.url.searchParams.get('lat'));
-	const long = $derived(page.url.searchParams.get('long'));
+	import type { PageProps } from './$types';
 
-	$inspect(lat);
-	$inspect(long);
+	const { data }: PageProps = $props();
+	const currentWeather = data.current;
 </script>
+
+<WeatherGen {currentWeather}></WeatherGen>
