@@ -2,9 +2,11 @@ import tailwindcss from '@tailwindcss/vite';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import basicSsl from '@vitejs/plugin-basic-ssl'
+
 
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit(), devtoolsJson()],
+	plugins: [tailwindcss(), sveltekit(), devtoolsJson(), basicSsl()],
 	test: {
 		projects: [
 			{

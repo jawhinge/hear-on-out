@@ -5,6 +5,12 @@
 
 	const { data }: PageProps = $props();
 	const currentWeather = data.current;
+
+	$inspect(currentWeather)
 </script>
 
-<WeatherGen {currentWeather}></WeatherGen>
+
+<div class="flex min-h-screen flex-col items-center justify-center">
+	<WeatherGen {...currentWeather}></WeatherGen>
+</div>
+

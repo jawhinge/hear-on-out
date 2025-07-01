@@ -8,6 +8,14 @@
 	let position: GeolocationPosition | undefined = $state(undefined);
 	let error: GeolocationError | undefined = $state(undefined);
 
+	let options = {
+		enableHighAccuracy: true,
+		timeout: 5000, // milliseconds
+		maximumAge: 60 * 60 * 1000, // milliseconds
+	};
+
+	$inspect(error);
+
 	function flipGetPosition(): void {
 		getPosition = true;
 	}
@@ -36,4 +44,4 @@
 	{/if}
 </div>
 
-<Geolocation {getPosition} bind:position bind:loading bind:error />
+<Geolocation {options} {getPosition} bind:position bind:loading bind:error />
