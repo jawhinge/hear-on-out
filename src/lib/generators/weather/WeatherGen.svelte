@@ -19,6 +19,7 @@
   let gain: Tone.Gain | null = null;
 
 
+  //TODO - ADD DIFFERENT PROGRESSIONS
   const chordProgressions = [
     [
       { time: "0:0:0", notes: ['C4', 'E4', 'G4', 'B4'] },
@@ -48,9 +49,8 @@
 
   let currentProgression = $state(chordProgressions[0]);
 
-
   // Derived reactive values using runes
-  const bpm = $derived((temperature2m));
+  const bpm = $derived((isDay? temperature2m * 2 : temperature2m));
   const reverbWet = $derived(relativeHumidity2m/100);
   const delayWet = $derived(Math.round(windSpeed10m)/10);
   const phaserBase = $derived((1 / cloudCover) * 100);

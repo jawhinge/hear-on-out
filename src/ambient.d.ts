@@ -9,6 +9,17 @@ type WeatherDataCurrent = {
     windSpeed10m: number;
 }
 
+type AirQualityCurrent = {
+    time: Date;
+    dust: number;
+    pm10: number;
+    pm25: number;
+}
+
 type WeatherData = {
     current: WeatherDataCurrent
+}
+
+type AirQualityData = {
+    current: AirQualityCurrent
 }

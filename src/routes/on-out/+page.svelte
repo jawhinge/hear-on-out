@@ -4,9 +4,12 @@
 	import type { PageProps } from './$types';
 
 	const { data }: PageProps = $props();
-	const currentWeather = data.current;
+	const currentWeather = data.weatherData.current;
+	const currentAirQuality = data.airQualityData.current;
+
 
 	$inspect(currentWeather)
+	$inspect(currentAirQuality)
 </script>
 
 
